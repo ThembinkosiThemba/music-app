@@ -1,7 +1,15 @@
+import { Hero } from "./components";
+import { Header } from "./components";
+import { Feature } from "./components";
+import { Footer } from "./components";
+
 const App = () => {
   return (
-    <div className="bg-gray-800 flex min-h-screen items-center justify-center">
-      <h1 className="text-white text-5xl">Welcome to the music app!</h1>
+    <div className="h-screen mx-auto mb-10 bg-slate-800">
+      <Header />
+      <Hero />
+      <Feature />
+      <Footer />
     </div>
   );
 };
