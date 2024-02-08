@@ -1,18 +1,29 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
-import { BrowserRouter as Router } from 'react-router-dom';
-import { Provider } from 'react-redux';
+import React from "react";
+import ReactDOM from "react-dom/client";
+import { BrowserRouter as Router } from "react-router-dom";
+import { Provider } from "react-redux";
 
-import './index.css';
-import App from './App';
-import { store } from './redux/store';
+import "./index.css";
+import App from "./App";
+import { store } from "./redux/store";
+import { ClerkProvider } from "@clerk/clerk-react";
+import { dark } from "@clerk/themes";
 
-ReactDOM.createRoot(document.getElementById('root')).render(
+const PUBLISHABLE_KEY = import.meta.env.VITE_CLERK_PUBLISHABLE_KEY;
+
+ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
-    <Provider store={store}>
-      <Router>
-        <App />
-      </Router>
-    </Provider>
-  </React.StrictMode>,
+    <ClerkProvider
+      appearance={{
+        baseTheme: dark,
+      }}
+      publishableKey={PUBLISHABLE_KEY}
+    >
+      <Provider store={store}>
+        <Router>
+          <App />
+        </Router>
+      </Provider>
+    </ClerkProvider>
+  </React.StrictMode>
 );
