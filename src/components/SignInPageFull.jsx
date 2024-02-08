@@ -1,6 +1,7 @@
 import React from "react";
 import { logo } from "../assets";
 import SignInPage from "./SignInPage";
+import { SignInButton, SignUpButton } from "@clerk/clerk-react";
 
 const SignInPageFull = () => {
   return (
@@ -53,11 +54,18 @@ const SignInPageFull = () => {
           }}
         ></div>
       </div>
-      <div className="flex-1 flex items-center justify-center bg-gray-900 h-screen">
-        <SignInPage />
+      <div className="flex-1 flex flex-col items-center justify-center bg-gray-900 h-screen">
+        {/* <SignInPage /> */}
+        <div className="flex flex-row justify-start items-center my-8 text-sm font-medium text-gray-400 hover:text-cyan-400">
+          <SignInButton />
+        </div>
+        <br />
+        <div className="flex flex-row justify-start items-center my-8 text-sm font-medium text-gray-400 hover:text-cyan-400">
+          <SignUpButton />
+        </div>
       </div>
     </main>
-  );
+  )
 };
 
 export default SignInPageFull;
